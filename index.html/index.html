@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css.css">
+    <meta name="description" content="Compra fácil y rápido desde casa en Minimarket Online. Productos de calidad y servicio de delivery." />
+    <title>Minimarket Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee+Shade&family=Honk&family=Nabla&family=SixCaps&family=Sixtyfour+Convergence&family=Bungee+Tint&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <img id="modal-image" src="" alt="" />
+  </div>
+</div>
+</head>
+<body>
+    <div id="auth-screen" class="auth-screen">
+        <div class="auth-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Usuario" required />
+                <input type="password" id="login-password" placeholder="Contraseña" required />
+                <button type="submit">Entrar</button>
+            </form>
+            <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate</a></p>
+            <form id="register-form" style="display:none;">
+                <h3>Registro</h3>
+                <input type="text" id="reg-username" placeholder="Nuevo usuario" required />
+                <input type="password" id="reg-password" placeholder="Contraseña" required />
+                <button type="submit">Registrarse</button>
+                <p><a href="#" id="show-login">Ya tengo cuenta</a></p>
+            </form>
+        </div>
+    </div>
+
+    <main id="main-site" style="display: none;">
+        <header>
+            <h1>Minimarket Online <i class="fa-solid fa-shop"></i></h1>
+        </header>
+        <nav id="navMenu">
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-menu">
+                <li><a href="#hero"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#products"><i class="fa-solid fa-box-open"></i> Productos</a></li>
+                <li><a href="#schedule"><i class="fa-solid fa-clock"></i> Horario</a></li>
+                <li><a href="#order"><i class="fa-solid fa-truck-fast"></i> Delivery</a></li>
+                <li><a href="#galeria"><i class="fa-solid fa-camera-retro"></i> Galería</a></li>
+            </ul>
+            <form class="search-form" action="#products" method="get">
+                <input type="text" name="q" placeholder="Buscar productos..." aria-label="Buscar productos" />
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <a href="#" id="cart-button">
+                <i class="fa-solid fa-cart-shopping"></i> Carrito <span id="cart-count">(0)</span>
+            </a>
+        </nav>
+
+        <section id="hero" class="hero">
+            <h2>Bienvenidos a Minimarket Online</h2>
+            <p>Compra fácil y rápido desde tu casa</p>
+            <a href="#products" class="cta-button">Ver productos</a>
+        </section>
+
+        <section id="products" class="products container">
+            <h2>Productos Destacados</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="arroz jpeg .jpeg.jpg" alt="Arroz paquete 1 kg" />
+                    <h3>ARROZ</h3>
+                    <p>Paquete de arroz de 1 kg</p>
+                    <p><strong>Precio: S/. 3.50</strong></p>
+                    <button class="btn" data-price="3.5">Agregar al carrito</button>
+                    <a href="#" class="details-btn" data-product="arroz">Ver detalles</a>
+                </div>
+                <div class="product-item">
+                    <img src="aceite.jpeg.jpg" alt="Aceite de cocina 1 litro" />
+                    <h3>ACEITE</h3>
+                    <p>1L de Aceite</p>
+                    <p><strong>Precio: S/. 7.90</strong></p>
+                    <button class="btn" data-price="7.9">Agregar al carrito</button>
+                    <a href="#" class="details-btn" data-product="aceite">Ver detalles</a>
+                </div>
+                <div class="product-item">
+                    <img src="papel.jpeg.jpg" alt="Paquete de papel higiénico" />
+                    <h3>PAPEL</h3>
+                    <p>Rollo de papel</p>
+                    <p><strong>Precio: S/. 1.50</strong></p>
+                    <button class="btn" data-price="1.5">Agregar al carrito</button>
+                    <a href="#" class="details-btn" data-product="papel">Ver detalles</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="schedule-section container">
+            <h2>Horario de Atención</h2>
+            <div class="schedule-cards">
+                <div class="schedule-card">
+                    <h3>Lunes a Viernes</h3>
+                    <p>8:00 AM - 8:00 PM</p>
+                </div>
+                <div class="schedule-card">
+                    <h3>Sábado</h3>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="schedule-card">
+                    <h3>Domingo</h3>
+                    <p>Cerrado</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="order" class="order-form">
+            <h2>Servicio de Delivery</h2>
+            <form id="order-form" action="#" method="POST">
+                <label for="nombre"><i class="fa-solid fa-user"></i> Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+                <label for="direccion"><i class="fa-solid fa-location-dot"></i> Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required />
+                <label for="telefono"><i class="fa-solid fa-phone"></i> Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required />
+                <label for="producto"><i class="fa-solid fa-cart-shopping"></i> Producto:</label>
+                <select id="producto" name="producto" required>
+                    <option value="">Seleccione un producto</option>
+                    <option value="producto1">Producto 1</option>
+                    <option value="producto2">Producto 2</option>
+                    <option value="producto3">Producto 3</option>
+                </select>
+                <button type="submit">Enviar Pedido</button>
+            </form>
+        </section>
+
+        <section id="galeria" class="galeria-grid">
+            <h2>Galería</h2>
+            <div class="gallery-grid" tabindex="0" aria-label="Galería de imágenes">
+                <div class="gallery-item">
+                    <img src="1.jpg" alt="Imagen 1" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="2.jpg" alt="Imagen 2" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="3.jpg" alt="Imagen 3" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="4.jpg" alt="Imagen 4" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="5.jpg" alt="Imagen 5" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="6.jpg" alt="Imagen 6" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="Imagen 7" loading="lazy" />
+                </div>
+                <div class="gallery-item">
+                    <img src="8.jpg" alt="Imagen 8" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="container">
+                <h2 class="video-title">¡Conoce más sobre nosotros!</h2>
+                <p class="video-description">Descubre cómo trabajamos y lo que ofrecemos en nuestro minimarket.</p>
+                <video width="720" height="405" controls poster="poster.jpg" preload="metadata" muted playsinline>
+                    <source src="video.mp4" type="video/mp4" />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+        </section>
+
+   <div id="cart-modal" class="cart-modal">
+            <div class="cart-content">
+                <h2>Tu Carrito</h2>
+                <ul id="cart-items"></ul>
+                <p><strong>Total: </strong>S/. <span id="cart-total">0.00</span></p>
+                <button id="checkout-btn">Pagar</button>
+                <button id="close-cart">Cerrar</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Creado con <i class="fa-solid fa-heart"></i> por Minimarket Online</p>
+            <small>Esperemos que encuentres todo lo que busques al alcance de un solo click, gracias por tu visita.</small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
+<script>
+  const cart = [];
+  const cartButton = document.getElementById("cart-button");
+  const cartModal = document.getElementById("cart-modal");
+  const closeCartBtn = document.getElementById("close-cart");
+  const cartItemsList = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const cartCount = document.getElementById("cart-count");
+
+  function updateCartUI() {
+    cartItemsList.innerHTML = "";
+    let total = 0;
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - S/. ${item.price.toFixed(2)}`;
+      cartItemsList.appendChild(li);
+      total += item.price;
+    });
+    cartTotal.textContent = total.toFixed(2);
+    cartCount.textContent = `(${cart.length})`;
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCartUI();
+  }
+
+  document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const product = btn.closest(".product-item");
+      const name = product.querySelector("h3").textContent;
+      const price = parseFloat(btn.getAttribute("data-price"));
+      addToCart(name, price);
+    });
+  });
+
+  cartButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    cartModal.style.display = "flex";
+  });
+
+  closeCartBtn.addEventListener("click", () => {
+    cartModal.style.display = "none";
+  });
+
+  document.getElementById("checkout-btn").addEventListener("click", () => {
+    alert("Gracias por tu compra. Función de pago próximamente.");
+    cart.length = 0;
+    updateCartUI();
+    cartModal.style.display = "none";
+  });
+</script>
+<script>
+  // Registro
+  document.getElementById("register-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = document.getElementById("reg-username").value.trim();
+    const password = document.getElementById("reg-password").value.trim();
+
+    if (username && password) {
+      localStorage.setItem("user", JSON.stringify({ username, password }));
+      alert("Usuario registrado correctamente");
+      this.reset();
+    }
+  });
+
+  // Inicio de sesión
+  document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (savedUser && savedUser.username === username && savedUser.password === password) {
+      sessionStorage.setItem("loggedUser", username);
+      updateUserUI(username);
+      this.reset();
+    } else {
+      alert("Credenciales inválidas");
+    }
+  });
+
+
+  function updateUserUI(username) {
+    const profile = document.getElementById("user-profile");
+    const registerForm = document.getElementById("register-form");
+    const loginForm = document.getElementById("login-form");
+
+    if (username) {
+      profile.style.display = "block";
+      document.getElementById("profile-username").textContent = username;
+      registerForm.style.display = "none";
+      loginForm.style.display = "none";
+    } else {
+      profile.style.display = "none";
+      registerForm.style.display = "block";
+      loginForm.style.display = "block";
+    }
+  }
+
+  // Si ya está logueado
+  window.addEventListener("DOMContentLoaded", () => {
+    const user = sessionStorage.getItem("loggedUser");
+    if (user) updateUserUI(user);
+  });
+</script>
+</main>
+<script>
+  const authScreen = document.getElementById("auth-screen");
+  const mainSite = document.getElementById("main-site");
+
+  const loginForm = document.getElementById("login-form");
+  const registerForm = document.getElementById("register-form");
+
+  const showRegister = document.getElementById("show-register");
+  const showLogin = document.getElementById("show-login");
+
+  // Mostrar formulario correspondiente
+  showRegister.addEventListener("click", (e) => {
+    e.preventDefault();
+    registerForm.style.display = "block";
+    loginForm.style.display = "none";
+  });
+
+  showLogin.addEventListener("click", (e) => {
+    e.preventDefault();
+    registerForm.style.display = "none";
+    loginForm.style.display = "block";
+  });
+
+  // Registro
+  registerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById("reg-username").value.trim();
+    const password = document.getElementById("reg-password").value.trim();
+    if (username && password) {
+      localStorage.setItem("user", JSON.stringify({ username, password }));
+      alert("Usuario registrado correctamente. Ahora inicia sesión.");
+      registerForm.reset();
+      registerForm.style.display = "none";
+      loginForm.style.display = "block";
+    }
+  });
+
+  // Login
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (savedUser && savedUser.username === username && savedUser.password === password) {
+      sessionStorage.setItem("loggedUser", username);
+      authScreen.style.display = "none";
+      mainSite.style.display = "block";
+    } else {
+      alert("Credenciales incorrectas.");
+    }
+  });
+
+  // Mostrar el sitio si ya hay usuario logueado
+  window.addEventListener("DOMContentLoaded", () => {
+    const user = sessionStorage.getItem("loggedUser");
+    if (user) {
+      authScreen.style.display = "none";
+      mainSite.style.display = "block";
+    }
+  });
+</script>
+<script>
+  document.getElementById("order-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre");
+    const direccion = document.getElementById("direccion");
+    const telefono = document.getElementById("telefono");
+    const producto = document.getElementById("producto");
+
+    let errores = [];
+
+    // Reset estilos
+    [nombre, direccion, telefono, producto].forEach(input => input.classList.remove("input-error"));
+
+    if (nombre.value.trim().length < 3) {
+      errores.push("El nombre debe tener al menos 3 caracteres.");
+      nombre.classList.add("input-error");
+    }
+
+    if (direccion.value.trim().length < 5) {
+      errores.push("La dirección debe ser más específica.");
+      direccion.classList.add("input-error");
+    }
+
+    const telefonoRegex = /^[0-9]{7,15}$/;
+    if (!telefonoRegex.test(telefono.value.trim())) {
+      errores.push("El teléfono debe contener solo números (7 a 15 dígitos).");
+      telefono.classList.add("input-error");
+    }
+
+    if (producto.value === "") {
+      errores.push("Debe seleccionar un producto.");
+      producto.classList.add("input-error");
+    }
+
+    if (errores.length > 0) {
+      alert("Por favor corrige los siguientes errores:\n\n" + errores.join("\n"));
+    } else {
+      alert("Pedido enviado correctamente. ¡Gracias por tu compra!");
+      this.reset();
+    }
+  });
+  const productDetails = {
+    arroz: {
+      title: "Arroz (1 kg)",
+      description: "Arroz de grano largo ideal para tus comidas diarias. Calidad garantizada.",
+      image: "arroz jpeg .jpeg.jpg"
+    },
+    aceite: {
+      title: "Aceite (1L)",
+      description: "Aceite vegetal de alta calidad para todo tipo de cocinas.",
+      image: "aceite.jpeg.jpg"
+    },
+    papel: {
+      title: "Papel Higiénico",
+      description: "Suave y resistente. Ideal para el uso diario en casa.",
+      image: "papel.jpeg.jpg"
+    }
+  };
+
+  const modal = document.getElementById("product-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
+  const modalImage = document.getElementById("modal-image");
+  const closeBtn = document.querySelector(".close-btn");
+
+  document.querySelectorAll(".details-btn").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      const productKey = this.getAttribute("data-product");
+      const details = productDetails[productKey];
+
+      if (details) {
+        modalTitle.textContent = details.title;
+        modalDescription.textContent = details.description;
+        modalImage.src = details.image;
+        modalImage.alt = details.title;
+        modal.style.display = "flex";
+      }
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
+
